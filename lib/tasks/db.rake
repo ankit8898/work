@@ -24,7 +24,7 @@ namespace :db do
     #a = a.collect{|x| a.id}
     a.each do |i|
       5.times  do |st|
-        Product.create(:name => "Sub Category#{st}" ,:sub_category_id => "#{i.id}")
+        Product.create(:name => "Product#{st}" ,:sub_category_id => "#{i.id}")
       end
     end
   end

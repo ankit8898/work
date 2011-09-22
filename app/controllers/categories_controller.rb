@@ -3,7 +3,7 @@ class CategoriesController < ApplicationController
   # GET /categories.json
   def index
     @categories = Category.all
-
+    Category.list_all_details
     respond_to do |format|
       format.html # index.html.erb
       format.json { render :json => @categories }

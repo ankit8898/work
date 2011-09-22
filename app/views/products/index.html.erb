@@ -1,23 +1,15 @@
-<h1>Listing products</h1>
+<% @category.each do |c| %>
+  <h1><%= link_to c.name %></h1>
+  <ul>
+    <% sub_categories = c.sub_categories %>
+    <% for sub_category in sub_categories %>
+      <li><%= link_to sub_category.name%></li>
+      <%products = sub_category.products%>
+      <% for product in products %>
+        <ul><%= link_to product.name %></ul>
+      <%end%>
+    <%end%>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+  </ul>
+<%end%>
 
-<% @products.each do |product| %>
-  <tr>
-    <td><%= product.name %></td>
-    <td><%= link_to 'Show', product %></td>
-    <td><%= link_to 'Edit', edit_product_path(product) %></td>
-    <td><%= link_to 'Destroy', product, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Product', new_product_path %>
